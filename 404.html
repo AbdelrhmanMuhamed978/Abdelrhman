@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <title>Redirecting…</title>
     <script>
-      // GitHub Pages SPA fallback for BrowserRouter basename "/Abdelrhman/".
-      // Keeps the /Abdelrhman base segment, stores the rest in the query string,
-      // then index.html restores it with history.replaceState.
+      // GitHub Pages SPA fallback. Keep the /Abdelrhman base segment when the
+      // app is served from the project site; keep 0 segments at the root site.
       (function () {
-        var pathSegmentsToKeep = 1;
+        var pathSegmentsToKeep =
+          window.location.pathname.split("/")[1] === "Abdelrhman" ? 1 : 0;
         var l = window.location;
         l.replace(
           l.protocol +
